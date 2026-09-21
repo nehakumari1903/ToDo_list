@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>update page</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <%- include('nav.ejs') %>
+        <hr>
+        <div class="container">
+            <h1> Update task</h1>
+            <form action="/update" method="post" class="todo-form">
+                <input type="hidden" name="id" value="<%= result._id %>" />
+                <input class="input" type="text" value="<%= result.title %>" placeholder="enter title" name="title" />
+                <br>
+                <br>
+                <textarea class="txtarea" type="text" name="description"><%= result.description %></textarea>
+                <br>
+                <br>
+                <button class="buttonn">Update task</button>
+            </form>
+        </div>
+    </body>
+</html>

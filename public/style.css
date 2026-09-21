@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    font-family: Arial;
+}
+nav{
+    background-color: darkslategrey;
+    margin: 0px;
+    padding: 10px
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    border: 40px;
+    border-radius: 10%;
+}
+nav ul li a:hover{
+    background-color:rgb(5, 33, 33);
+}
+hr{
+    margin: 0;
+    border-top: 2px solid #ccc;
+}
+
+.home{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.todo-form{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px darkslategrey;
+    max-width: 400px;
+    width: 100%;
+}
+.input{
+    padding: 10px;
+    width: 100%;
+}
+.txtarea{
+    padding: 30px;
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+.buttonn{
+    width: 100%;
+    padding: 10px;
+    background-color: darkslategrey;
+    cursor: pointer;
+}
+.buttonn:hover{
+    background-color: rgb(5, 33, 33);
+}
+
+.tasks{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    max-width: 600px;
+}
+.onetask{
+    margin: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    border-left: 5px solid forestgreen;
+    border-radius: 5px;
+    box-shadow: 0px 4px 12px darkslategrey;
+    width: 70%;
+    word-wrap: break-word;
+}
+.tasktitle{
+    font-weight: bold;
+    font-size: 18px;
+    color: forestgreen;
+    margin-bottom: 8px;
+}
+.taskdes{
+    color:#666;
+    margin-bottom: 12px;
+}
+
+.deletee{
+    text-decoration: none;
+    padding: 4px;
+    background-color: crimson;
+    color:#ccc;
+    border-radius: 4px;
+}
+.updatee{
+    text-decoration: none;
+    padding: 4px;
+    background-color:#4caf50;
+    color:#ccc;
+    border-radius: 4px;
+}
+.deletee:hover{
+    background-color: brown;
+}
+.updatee:hover{
+    background-color: forestgreen;
+}

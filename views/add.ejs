@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>home page</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <%- include('nav.ejs') %>
+        <hr>
+        <div class="container">
+            <h1> Add new task</h1>
+            <form action="/submit" method="post" class="todo-form">
+                <input class="input" placeholder="enter title" name="title" type="text"/>
+                <br>
+                <br>
+                <textarea class="txtarea" type="text" name="description"></textarea>
+                <br>
+                <br>
+                <button class="buttonn">Add task</button>
+            </form>
+        </div>
+    </body>
+</html>

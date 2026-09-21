@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>home page</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <%- include('nav.ejs') %>
+        <hr>
+        <div class="container">
+            <form action="/multipledelete" method="post" class="multipledelete">
+            <h1> list of all the tasks</h1>
+            <button class="deletee">Delete multiple boxes</button>
+            <ul class="tasks">
+            <% for(let task=0; task<result.length; task++){ %>
+                <li class="onetask">
+                    <div class="tasktitle"><%= result[task].title %></div>
+                    <div class="taskdes"><%= result[task].description %></div>
+                    <input type="checkbox" name="selectedcheckbox" value="<%= result[task]._id %>" />
+                    <a class="updatee" href="/update/<%= result[task]._id %>">Update</a>
+                    <a class="deletee" href="/delete/<%= result[task]._id %>">Delete</a>
+                </li>
+            <% } %>
+            </ul>
+            </form>
+            
+        </div>
+    </body>
+</html>
