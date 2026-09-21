@@ -1,5 +1,8 @@
+import dns from 'dns'
+dns.setServers(['8.8.8.8', '8.8.4.4'])
 import express from 'express'
 import path from 'path'
+import 'dotenv/config'
 import { MongoClient, ObjectId } from 'mongodb'
 const app=express()
 
@@ -12,7 +15,7 @@ app.use(express.static(publicpath))
 
 const dbname='node-project'
 const collection='todo'
-const url='mongodb://localhost:27017'
+const url=process.env.MONGO_URI
 const client= new MongoClient(url)
 
 const dbconnection=async ()=>{
@@ -24,6 +27,7 @@ app.get('', (req, resp)=>{
     resp.render('home')
     
 })
+
 
 app.get('/tasklist', async(req, resp)=>{
     const db=await dbconnection()
@@ -43,7 +47,7 @@ app.get('/update', (req, resp)=>{
 app.post('/submit', async(req, resp)=>{
     const db=await dbconnection()
     const collectionname=db.collection(collection)
-    const result= collectionname.insertOne(req.body)
+    const result=await collectionname.insertOne(req.body)
     if(result){
         resp.redirect('/');
     }
@@ -56,7 +60,7 @@ app.get('/delete/:id', async(req, resp)=>{
     const id=req.params.id;
     const db=await dbconnection()
     const collectionname=db.collection(collection)
-    const result=collectionname.deleteOne({_id: new ObjectId(id)})
+    const result=await collectionname.deleteOne({_id: new ObjectId(id)})
     if(result){
         resp.redirect('/')
     }
@@ -113,4 +117,6 @@ app.post('/multipledelete', async(req, resp)=>{
     }
 })
 
-app.listen(3000)
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
