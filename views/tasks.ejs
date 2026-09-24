@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>home page</title>
         <link rel="stylesheet" href="/style.css">
     </head>
@@ -13,11 +15,11 @@
             <ul class="tasks">
             <% for(let task=0; task<result.length; task++){ %>
                 <li class="onetask">
+                    <input type="checkbox" name="selectedcheckbox" value="<%= result[task]._id %>" />
                     <div class="tasktitle"><%= result[task].title %></div>
                     <div class="taskdes"><%= result[task].description %></div>
-                    <input type="checkbox" name="selectedcheckbox" value="<%= result[task]._id %>" />
                     <a class="updatee" href="/update/<%= result[task]._id %>">Update</a>
-                    <a class="deletee" href="/delete/<%= result[task]._id %>">Delete</a>
+                    <a class="deletee" href="/delete/<%= result[task]._id %>" onclick="return confirm('Delete this task?');">Delete</a>
                 </li>
             <% } %>
             </ul>

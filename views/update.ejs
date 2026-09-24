@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>update page</title>
         <link rel="stylesheet" href="/style.css">
     </head>
@@ -10,7 +12,7 @@
             <h1> Update task</h1>
             <form action="/update" method="post" class="todo-form">
                 <input type="hidden" name="id" value="<%= result._id %>" />
-                <input class="input" type="text" value="<%= result.title %>" placeholder="enter title" name="title" />
+                <input class="input" type="text" value="<%= result.title %>" placeholder="enter title" name="title" required />
                 <br>
                 <br>
                 <textarea class="txtarea" type="text" name="description"><%= result.description %></textarea>
